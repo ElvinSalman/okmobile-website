@@ -1,0 +1,7 @@
+nova-website
+node_modules
+.next
+.git
+test-results
+playwright-report
+.env*

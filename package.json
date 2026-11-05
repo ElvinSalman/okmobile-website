@@ -1,0 +1,41 @@
+{
+  "name": "okmobile-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "next": "16.4.5",
+    "react": "latest",
+    "react-dom": "latest",
+    "next-intl": "latest",
+    "next-themes": "latest",
+    "zustand": "latest",
+    "zod": "latest",
+    "motion": "latest",
+    "lucide-react": "latest",
+    "class-variance-authority": "latest",
+    "clsx": "latest",
+    "tailwind-merge": "latest",
+    "@radix-ui/react-slot": "latest",
+    "@radix-ui/react-dialog": "latest"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tailwindcss": "latest",
+    "@tailwindcss/postcss": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "16.4.5",
+    "@playwright/test": "latest",
+    "vercel": "latest"
+  }
+}
