@@ -75,6 +75,21 @@ export function Catalog({ search = false }: { search?: boolean }) {
         </select>
       </label>
       <label>
+        {t("storage")}
+        <select
+          aria-label={t("storage")}
+          value={f.storage || ""}
+          onChange={(e) => update("storage", e.target.value)}
+        >
+          <option value="">{t("all")}</option>
+          {[...new Set(products.flatMap((p) => p.storage || []))]
+            .sort()
+            .map((s) => (
+              <option key={s}>{s}</option>
+            ))}
+        </select>
+      </label>
+      <label>
         {t("min")}
         <input
           aria-label={t("min")}
@@ -109,7 +124,9 @@ export function Catalog({ search = false }: { search?: boolean }) {
         {t(search ? "searchTitle" : "catalog")}
       </div>
       <div className="page-title">
-        <span className="eyebrow orange">OK MOBILE / THE COLLECTION</span>
+        <span className="eyebrow orange">
+          OK MOBILE / {t("catalog").toUpperCase()}
+        </span>
         <h1>{t(search ? "searchTitle" : "catalog")}</h1>
         <p>{t("demo")}</p>
       </div>

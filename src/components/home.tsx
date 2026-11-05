@@ -49,7 +49,9 @@ export function Home() {
                 <i />
                 <span>02</span>
                 <span>03</span>
-                <span className="hero-scroll">OK MOBILE / THE COLLECTION</span>
+                <span className="hero-scroll">
+                  OK MOBILE / {t("catalog").toUpperCase()}
+                </span>
               </div>
             </motion.div>
           </div>
@@ -74,7 +76,7 @@ export function Home() {
               priority
             />
             <div className="hero-art-label">
-              <span>DESIGNED FOR YOUR EVERYDAY</span>
+              <span>{t("tagline").toUpperCase()}</span>
               <ArrowUpRight size={26} />
             </div>
             <span className="hero-sample">{t("sample")}</span>

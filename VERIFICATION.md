@@ -5,10 +5,10 @@
 - `npm run typecheck`: passed.
 - `npm run lint`: passed, no warnings.
 - `npm run build`: passed; 68 prerendered entries, including 36 product pages across three languages.
-- `npm test`: **6 passed** using installed Google Chrome, 10.4 seconds for the final local run.
+- `npm test`: **6 passed** using installed Google Chrome, 10.7 seconds for the final local run.
 - Direct product navigation and refresh: az/ru/en passed.
 - Canonical language alternates and original asset loading: passed.
-- URL-backed search, category/brand/price filters: passed.
+- URL-backed search, category/brand/price/storage filters and Azerbaijani/Russian category queries: passed.
 - Variant cart, quantity changes, reload persistence, wishlist, language route retention and removal: passed.
 - Form validation, HTTP 400 on invalid body, honest unavailable-delivery message: passed. No real inquiry delivery provider configured or test message sent externally.
 - Theme switch/reload, mobile filter drawer, mobile menu: passed.

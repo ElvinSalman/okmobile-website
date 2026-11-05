@@ -1,3 +1,4 @@
+import { messages } from "./i18n";
 export const categories = [
   "phones",
   "tablets",
@@ -152,6 +153,7 @@ export type Filters = {
   q?: string;
   category?: string;
   brand?: string;
+  storage?: string;
   min?: string;
   max?: string;
   sort?: string;
@@ -164,11 +166,14 @@ export function filterProducts(filters: Filters) {
   const result = products.filter(
     (p) =>
       (!term ||
-        `${p.name} ${p.brand} ${p.category}`
+        `${p.name} ${p.brand} ${p.category} ${Object.values(messages)
+          .map((m) => m[p.category])
+          .join(" ")}`
           .toLocaleLowerCase()
           .includes(term)) &&
       (!filters.category || p.category === filters.category) &&
       (!filters.brand || p.brand === filters.brand) &&
+      (!filters.storage || p.storage?.includes(filters.storage)) &&
       p.demoPrice >= min &&
       p.demoPrice <= (Number.isFinite(max) ? max : Infinity),
   );

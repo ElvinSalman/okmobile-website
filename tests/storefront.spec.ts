@@ -42,6 +42,13 @@ test("search, category, brand, price and sort use URL state", async ({
   await page.getByLabel("Brand", { exact: true }).selectOption("Samsung");
   await expect(page).toHaveURL(/brand=Samsung/);
   await expect(page.locator(".product-card")).toHaveCount(4);
+  await page.getByLabel("Storage", { exact: true }).selectOption("512 GB");
+  await expect(page).toHaveURL(/storage=512/);
+  await expect(page.locator(".product-card")).toHaveCount(2);
+  await page.goto("/az/search?q=Smartfonlar");
+  await expect(page.locator(".product-card")).toHaveCount(2);
+  await page.goto("/ru/search?q=Планшеты");
+  await expect(page.locator(".product-card")).toHaveCount(2);
 });
 test("variants, cart quantities, persistence, wishlist and retained language route", async ({
   page,

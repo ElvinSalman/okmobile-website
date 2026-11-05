@@ -44,7 +44,7 @@ export function Collections({ wishlist = false }: { wishlist?: boolean }) {
   return (
     <div className="container page-content">
       <div className="page-title">
-        <span className="eyebrow orange">YOUR PERSONAL COLLECTION</span>
+        <span className="eyebrow orange">{t("curated")}</span>
         <h1>{t(wishlist ? "wishlist" : "cart")}</h1>
         <p>{t("demo")}</p>
       </div>
