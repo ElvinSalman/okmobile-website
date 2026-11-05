@@ -11,31 +11,34 @@
     "test": "playwright test"
   },
   "dependencies": {
-    "next": "16.4.5",
-    "react": "latest",
-    "react-dom": "latest",
-    "next-intl": "latest",
-    "next-themes": "latest",
-    "zustand": "latest",
-    "zod": "latest",
-    "motion": "latest",
-    "lucide-react": "latest",
+    "@radix-ui/react-dialog": "latest",
+    "@radix-ui/react-slot": "latest",
     "class-variance-authority": "latest",
     "clsx": "latest",
+    "lucide-react": "latest",
+    "motion": "latest",
+    "next": "16.4.5",
+    "next-intl": "latest",
+    "next-themes": "latest",
+    "react": "latest",
+    "react-dom": "latest",
     "tailwind-merge": "latest",
-    "@radix-ui/react-slot": "latest",
-    "@radix-ui/react-dialog": "latest"
+    "zod": "latest",
+    "zustand": "latest"
   },
   "devDependencies": {
-    "typescript": "latest",
+    "@playwright/test": "latest",
+    "@tailwindcss/postcss": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "tailwindcss": "latest",
-    "@tailwindcss/postcss": "latest",
     "eslint": "latest",
     "eslint-config-next": "16.4.5",
-    "@playwright/test": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest",
     "vercel": "latest"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }

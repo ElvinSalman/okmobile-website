@@ -7,3 +7,6 @@ playwright-report/
 test-results/
 *.tsbuildinfo
 nova-website/
+
+.vercel
+.env*
