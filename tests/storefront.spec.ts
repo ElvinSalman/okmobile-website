@@ -2,17 +2,21 @@ import { test, expect } from "@playwright/test";
 test("locale routes, direct product refresh, metadata and original images", async ({
   page,
 }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error=>errors.push(error.message));
   for (const locale of ["az", "ru", "en"]) {
     await page.goto(`/${locale}/products/iphone-17-pro`);
     await expect(page.locator("h1")).toHaveText("iPhone 17 Pro");
     await expect(page.locator("html")).toHaveAttribute("lang", locale);
     await page.reload();
     await expect(page.locator("h1")).toBeVisible();
+    if(locale==='az') await expect(page.locator('.detail-price strong')).toHaveText('2.799 ₼');
     expect(await page.locator('link[rel="alternate"][hreflang]').count()).toBe(
       4,
     );
-    expect(
-      await page
+    await page.locator('img').evaluateAll(images=>images.forEach(image=>{(image as HTMLImageElement).loading='eager';}));
+    await expect.poll(async () =>
+      page
         .locator("img")
         .evaluateAll((images) =>
           images.every(
@@ -23,6 +27,7 @@ test("locale routes, direct product refresh, metadata and original images", asyn
         ),
     ).toBeTruthy();
   }
+  expect(errors).toEqual([]);
 });
 test("search, category, brand, price and sort use URL state", async ({
   page,

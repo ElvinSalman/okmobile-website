@@ -142,11 +142,13 @@ export const products: Product[] = rows.map(
 export const getProduct = (slug: string) =>
   products.find((p) => p.slug === slug);
 export function money(value: number, locale: string) {
+  // ICU locale data differs between Node and Chrome releases. Keep server and
+  // browser output identical; the demo catalog contains integer AZN amounts.
+  const separator = locale === "az" ? "." : locale === "ru" ? "\u00a0" : ",";
   return (
-    new Intl.NumberFormat(
-      locale === "az" ? "az-AZ" : locale === "ru" ? "ru-RU" : "en-US",
-      { maximumFractionDigits: 0 },
-    ).format(value) + " ₼"
+    Math.round(value)
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, separator) + " ₼"
   );
 }
 export type Filters = {

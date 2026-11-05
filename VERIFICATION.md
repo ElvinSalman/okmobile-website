@@ -18,3 +18,5 @@
 - Desktop home screenshot visually reviewed. Automated layout checks are not a formal accessibility audit or field performance measurement.
 
 Compiler and Chrome commands required normal user execution because the sandbox account could not read the installed native compiler cache / run browser processes. No system security settings were changed.
+
+Production verification exposed different ICU separators for Azerbaijani between Vercel's Node runtime and Chrome. Currency formatting now uses explicit locale separators, with a regression assertion for `2.799 ₼` and runtime-error checks on all three localized product pages.
